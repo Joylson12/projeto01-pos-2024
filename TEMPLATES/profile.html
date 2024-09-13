@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil</title>
+</head>
+<body>
+    <h1>Meu Perfil</h1>
+    <p>Nome: {{ profile_data['name'] }}</p>
+    <p>Email: {{ profile_data['email'] }}</p>
+    <p>Outras informações: {{ profile_data['other_info'] }}</p>
+    <a href="{{ url_for('index') }}">Voltar para a página inicial</a>
+    <a href="{{ url_for('grades') }}">Ver Notas</a>
+</body>
+</html>

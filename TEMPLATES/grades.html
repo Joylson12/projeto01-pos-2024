@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notas</title>
+</head>
+<body>
+    <h1>Notas</h1>
+    <form method="GET" action="{{ url_for('grades') }}">
+        <label for="school_year">Ano:</label>
+        <input type="text" id="school_year" name="school_year" value="{{ year }}">
+        <br>
+        <label for="semester">Semestre:</label>
+        <input type="text" id="semester" name="semester" value="{{ semester }}">
+        <br>
+        <button type="submit">Buscar</button>
+    </form>
+    <h1>Boletim</h1>
+    <p>Aluno: {{ profile_data.nome }}</p>
+    <p>Ano: {{ year }}</p>
+    <p>Semestre: {{ semester }}</p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Disciplina</th>
+                <th>Nota</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for grade in grades_data %}
+                <tr>
+                    <td>{{ grade.disciplina }}</td>
+                    <td>{{ grade.nota }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{{ url_for('index') }}">Voltar para a página inicial</a>
+</body>
+</html>
