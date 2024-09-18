@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,16 +25,34 @@
         <thead>
             <tr>
                 <th>Disciplina</th>
-                <th>Nota</th>
+                <th>Número de Faltas</th>
+                <th>Nota Etapa 1</th>
+                <th>Nota Etapa 2</th>
+                <th>Nota Etapa 3</th>
+                <th>Nota Etapa 4</th>
+                <th>Média Final</th>
+                <th>Situação</th>
             </tr>
         </thead>
         <tbody>
-            {% for grade in grades_data %}
+            {% if grades_data %}
+                {% for grade in grades_data %}
                 <tr>
                     <td>{{ grade.disciplina }}</td>
-                    <td>{{ grade.nota }}</td>
+                    <td>{{ grade.numero_faltas }}</td>
+                    <td>{{ grade.nota_etapa_1.nota if grade.nota_etapa_1.nota else 'Não Definido' }}</td>
+                    <td>{{ grade.nota_etapa_2.nota if grade.nota_etapa_2.nota else 'Não Definido' }}</td>
+                    <td>{{ grade.nota_etapa_3.nota if grade.nota_etapa_3.nota else 'Não Definido' }}</td>
+                    <td>{{ grade.nota_etapa_4.nota if grade.nota_etapa_4.nota else 'Não Definido' }}</td>
+                    <td>{{ grade.media_final_disciplina if grade.media_final_disciplina else 'Não Definido' }}</td>
+                    <td>{{ grade.situacao }}</td>
                 </tr>
-            {% endfor %}
+                {% endfor %}
+            {% else %}
+                <tr>
+                    <td colspan="8">Nenhuma nota encontrada para o período selecionado.</td>
+                </tr>
+            {% endif %}
         </tbody>
     </table>
     <a href="{{ url_for('index') }}">Voltar para a página inicial</a>

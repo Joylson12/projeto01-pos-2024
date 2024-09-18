@@ -8,8 +8,8 @@ app.secret_key = 'development'
 oauth = OAuth(app)
 oauth.register(
     name='suap',
-    client_id='',
-    client_secret='',
+    client_id='5b9mLagSTbSzQqeF5ejojfzGT1nfVVxCAGHHzZcN',
+    client_secret='mDPmgB2Sy7DMRF1r3CV1AJaLPwlCnIWkoougu717TW9ezvg5DnYtnSPacgzSQ93TX04eeCCJnpVCrJGbwNxGsQBlNt0TZank6AUdqGbTdWHeSmATaefDoH1MlehCTqG5',
     api_base_url='https://suap.ifrn.edu.br/api/',
     access_token_method='POST',
     access_token_url='https://suap.ifrn.edu.br/o/token/',
@@ -55,19 +55,28 @@ def profile():
         return redirect(url_for('index'))
 
 @app.route("/formulario", methods=["GET", "POST"])
+
 def grades():
     if "suap_token" in session:
         year = request.args.get("school_year", datetime.now().year)
-        semester = request.args.get("semester", 1 or 2)
+        semester = request.args.get("semester", '1')  # Garanta que o semestre seja uma string
         profile_data = oauth.suap.get("v2/minhas-informacoes/meus-dados")
-        grades_data = oauth.suap.get(f"v2/minhas-informacoes/boletim/{year}/{semester}/")
+        try:
+            grades_response = oauth.suap.get(f"v2/minhas-informacoes/boletim/{year}/{semester}/")
+            grades_response.raise_for_status()  # Levanta um erro se a resposta não for 200 OK
+            grades_data = grades_response.json()
+        except Exception as e:
+            print(f"Error fetching grades: {e}")
+            grades_data = []  # Defina grades_data como uma lista vazia em caso de erro
+
         return render_template("grades.html",
-                               grades_data=grades_data.json(),
+                               grades_data=grades_data,
                                profile_data=profile_data.json(),
                                year=year,
                                semester=semester)
     else:
         return redirect(url_for('index'))
+
 
 if __name__ == "__main__":
     app.run(debug=True)
