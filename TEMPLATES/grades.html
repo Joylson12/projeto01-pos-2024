@@ -4,35 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Notas</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css.css') }}">
 </head>
 <body>
-    <header>
-        <a href="#" class="logo">DEUSES DO OLIMPO</a>
-        <ul class="navlist">
-            <li><a href="{{ url_for('index') }}">Pagina Inicial</a></li>
-            <li><a href="{{ url_for('profile') }}">Meu perfil</a></li>
-        </ul>
-        <div class="bx bx-menu" id="menu-icon"></div>
-    </header>
-    <br>
-    <section class="notas">
-        <div class="hero-text">
-            <form method="GET" action="{{ url_for('grades') }}">
-                <label for="school_year">Ano:</label>
-                <input type="text" id="school_year" name="school_year" value="{{ year }}" required>
-                <label for="semester">Semestre:</label>
-                <input type="text" id="semester" name="semester" value="{{ semester }}" required>
-                <button type="submit">Buscar</button>
-                <br>
-                    <a href="{{ url_for('index') }}">Voltar para a página inicial</a>
-        </div>
-        </form>
-
-        <h1>Boletim</h1>
-        <p>Aluno: {{ profile_data.nome }}</p>
-        <p>Ano: {{ year }}</p>
-        <p>Semestre: {{ semester }}</p>
+    <h1>Notas</h1>
+    <form method="GET" action="{{ url_for('grades') }}">
+        <label for="school_year">Ano:</label>
+        <input type="text" id="school_year" name="school_year" value="{{ year }}">
+        <br>
+        <label for="semester">Semestre:</label>
+        <input type="text" id="semester" name="semester" value="{{ semester }}">
+        <br>
+        <button type="submit">Buscar</button>
+    </form>
+    <h1>Boletim</h1>
+    <p>Aluno: {{ profile_data.nome }}</p>
+    <p>Ano: {{ year }}</p>
+    <p>Semestre: {{ semester }}</p>
 
         <table>
             <thead>

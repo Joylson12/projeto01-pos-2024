@@ -29,9 +29,10 @@
                 <p>Foto de perfil: não disponível.</p>
             {% endif %}
             
-            <p>Nome: {{ profile_data['name'] }}</p>
-            <p>Email: {{ profile_data['email'] }}</p>
-            <p>Outras informações: {{ profile_data['other_info'] }}</p>
+            <p>Aluno: {{ profile_data['nome_usual'] if 'nome_usual' in profile_data else 'Não disponível' }}</p>
+            <p>Email: {{ profile_data['email'] if profile_data['email'] else 'Não disponível' }}</p>
+            <p>Outras informações: {{ profile_data['other_info'] if profile_data['other_info'] else 'Não disponível' }}</p>
+
             <a href="{{ url_for('grades') }}">Ver Notas</a>
         </div>
     </section>
