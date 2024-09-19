@@ -51,7 +51,6 @@ def auth():
 def profile():
     if "suap_token" in session:
         profile_data = oauth.suap.get("v2/minhas-informacoes/meus-dados").json()
-        print(profile_data)  # Adicione esta linha para ver a estrutura
         return render_template("profile.html", profile_data=profile_data)
     else:
         return redirect(url_for('index'))
