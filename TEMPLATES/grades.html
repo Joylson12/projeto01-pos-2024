@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Notas</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css.css') }}">
 </head>
 <body>
     <h1>Notas</h1>
@@ -15,6 +16,10 @@
         <input type="text" id="semester" name="semester" value="{{ semester }}">
         <br>
         <button type="submit">Buscar</button>
+        <br>
+        <div class="hero-text">
+            <a href="{{ url_for('index') }}">Voltar para a página inicial</a>
+        </div>
     </form>
     <h1>Boletim</h1>
     <p>Aluno: {{ profile_data.nome }}</p>
