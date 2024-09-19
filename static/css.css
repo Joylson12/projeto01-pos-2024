@@ -1,0 +1,196 @@
+
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+    background: linear-gradient(245.59deg, #4d9559 0%, #38703d 28.53%, #133917 75.52%);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Estilo do formulário */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+label {
+    margin: 10px 0;
+}
+
+input[type="text"] {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 300px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Estilo da tabela */
+table {
+    width: 100%;
+    max-width: 1000px;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+th, td {
+    padding: 12px;
+}
+
+th {
+    background-color: #f2f2f2;
+    color: #333;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+
+    table, thead, tbody, th, td, tr {
+        display: block;
+    }
+
+    thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+
+    tr {
+        margin-bottom: 10px;
+    }
+
+    td {
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+    }
+
+    td:before {
+        content: attr(data-label);
+        position: absolute;
+        left: 0;
+        padding-left: 10px;
+        font-weight: bold;
+    }
+}
+
+/* Link de voltar */
+
+.hero-text a{
+display: inline-block;
+color: white;
+background: #4d9559;
+border: 1px solid transparent;
+padding: 12px 30px;
+line-height: 1.4;
+font-size: 14px;
+font-weight: 500;
+border-radius: 30px;
+text-transform: uppercase;
+transition: all .55s ease;
+}
+
+.hero-text a:hover{
+background: transparent;
+border: 1px solid white;
+transform: translateX(8px);
+}
+
+/* navlist*/
+header{
+position: fixed;
+right: 0;
+top: 0;
+z-index: 1000;
+width: 100%;
+display: flex;
+align-items: center;
+justify-content: space-between;
+padding: 33px 9%;
+background: transparent;
+}
+
+
+.logo{
+font-size: 30px;
+font-weight: 700;
+color: white;
+}
+
+.navlist{
+display: flex;
+
+}
+
+.navlist a{
+color: white;
+margin-left: 60px;
+font-size: 15px;
+font-weight: 600;
+border-bottom: 2px solid transparent;
+transition: all .55s ease;
+}
+
+.navlist a:hover{
+border-bottom: 2px solid white;
+}
+
+#menu-icon{
+color: white;
+font-size: 30px;
+z-index: 10001;
+cursor: pointer;
+display: none;
+}
+
+.hero-text h1{
+    font-family: 'Permanent marker', cursive;
+    font-size: 90px;
+    line-height: 1;
+    color: white;
+    margin: 0 0 45px;
+}
