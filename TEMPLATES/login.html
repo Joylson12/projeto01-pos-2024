@@ -1,15 +1,42 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <!---Boxicons link-->
+    <link rel="stylesheet"
+    href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+
+    <!---Remixicons link-->
+    <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
+    rel="stylesheet">
 </head>
 <body>
-    <h1>Login</h1>
-    <p>Você precisa se autenticar para acessar as informações.</p>
-    <a href="{{ url_for('login') }}">Clique aqui para fazer login</a>
-    <br>
-    <a href="{{ url_for('index') }}">Voltar para a página inicial</a>
+    <header>
+        <a href="#" class="logo">DEUSES DO OLIMPO</a>
+        <ul class="navlist">
+            <li><a href="{{ url_for('index') }}">Home</a></li>
+        </ul>
+
+        <div class="bx bx-menu" id="menu-icon"></div>
+    </header>
+    <section class="hero">
+        <div class="hero-text">
+            <h5> Para ver seu perfil ou seu boletim academico basta logar sua conta.</h5>
+            <h4> Você precisa se autenticar para acessar as informações.</h4>
+            <h1>bem vindo!</h1>
+            <p>Utilize sua conta SUAP</p>
+            <a href="{{ url_for('login') }}">Clique aqui para fazer login</a><br>
+        </div>
+        <div class="hero-img">
+            <img src="{{ url_for('static', filename='img/zeus.png.png') }}">
+        </div>
+    </section>
 </body>
 </html>
