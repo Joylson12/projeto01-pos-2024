@@ -4,16 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página Inicial</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <h1>Bem-vindo!</h1>
-    {% if profile_data %}
-        <p>Olá, {{ profile_data['name'] }}!</p>
-        <a href="{{ url_for('logout') }}">Logout</a>
-    {% else %}
-        <a href="{{ url_for('login') }}">Login</a>
-    {% endif %}
-    <a href="{{ url_for('profile') }}">Meu Perfil</a>
-    <a href="{{ url_for('grades') }}">Notas</a>
+    <header>
+        <a href="#" class="logo">DEUSES DO OLIMPO</a>
+        <ul class="navlist">
+            <li><a href="{{ url_for('index') }}">Pagina Inicial</a></li>
+            <li><a href="{{ url_for('profile') }}">Meu perfil</a></li>
+        </ul>
+
+        <div class="bx bx-menu" id="menu-icon"></div>
+    </header>
+    <section class="hero">
+        <div class="hero-text">
+            <h5> Deseja visualizar o seu boletim acadêmico?</h5>
+            <h4> abaixo selecione sua opção de desejo</h4>
+            <h1>Bem-vindo!</h1>
+            {% if profile_data %}
+                <a href="{{ url_for('logout') }}">Logout</a>
+            {% else %}
+                <a href="{{ url_for('login') }}">Login</a>
+            {% endif %}
+            <a href="{{ url_for('grades') }}">Notas</a>
+        </div>
+    </section>
 </body>
 </html>

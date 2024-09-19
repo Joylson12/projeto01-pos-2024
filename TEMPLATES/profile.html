@@ -1,26 +1,40 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perfil</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
+
 <body>
-    <h1>Meu Perfil</h1>
-    
-    <!-- Exibindo a foto de perfil -->
-    {% if profile_data %}
-        <img src="{{ profile_data.url_foto_150x200 }}" class="card-img-top img-fluid" alt="Foto de Perfil">
-    {% else %}
-        <p>Foto de perfil: não disponível.</p>
-    {% endif %}
-    
-    <p>Nome: {{ profile_data['name'] }}</p>
-    <p>Email: {{ profile_data['email'] }}</p>
-    <p>Outras informações: {{ profile_data['other_info'] }}</p>
-    
-    <a href="{{ url_for('index') }}">Voltar para a página inicial</a>
-    <a href="{{ url_for('grades') }}">Ver Notas</a>
+    <header>
+        <a href="#" class="logo">DEUSES DO OLIMPO</a>
+        <ul class="navlist">
+            <li><a href="{{ url_for('index') }}">Home</a></li>
+        </ul>
+
+        <div class="bx bx-menu" id="menu-icon"></div>
+    </header>
+    <section class="hero">
+        <div class="profile-container">
+            <h1>Meu Perfil</h1>
+            
+            <!-- Exibindo a foto de perfil -->
+            {% if profile_data %}
+                <img src="{{ profile_data.url_foto_150x200 }}" class="card-img-top img-fluid" alt="Foto de Perfil">
+            {% else %}
+                <p>Foto de perfil: não disponível.</p>
+            {% endif %}
+            
+            <p>Nome: {{ profile_data['name'] }}</p>
+            <p>Email: {{ profile_data['email'] }}</p>
+            <p>Outras informações: {{ profile_data['other_info'] }}</p>
+            <a href="{{ url_for('grades') }}">Ver Notas</a>
+        </div>
+    </section>
 </body>
+
 </html>
