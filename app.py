@@ -50,10 +50,12 @@ def auth():
 @app.route("/profile")
 def profile():
     if "suap_token" in session:
-        profile_data = oauth.suap.get("v2/minhas-informacoes/meus-dados")
-        return render_template("profile.html", profile_data=profile_data.json())
+        profile_data = oauth.suap.get("v2/minhas-informacoes/meus-dados").json()
+        print(profile_data)  # Adicione esta linha para ver a estrutura
+        return render_template("profile.html", profile_data=profile_data)
     else:
         return redirect(url_for('index'))
+
 
 
 @app.route("/formulario", methods=["GET", "POST"])

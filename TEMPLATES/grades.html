@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Notas</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
 </head>
 <body>
     <h1>Notas</h1>
@@ -17,7 +19,7 @@
         <button type="submit">Buscar</button>
     </form>
     <h1>Boletim</h1>
-    <p>Aluno: {{ profile_data.nome }}</p>
+    <p>Aluno: {{ profile_data['nome_usual'] if 'nome_usual' in profile_data else 'Não disponível' }}</p>
     <p>Ano: {{ year }}</p>
     <p>Semestre: {{ semester }}</p>
 
